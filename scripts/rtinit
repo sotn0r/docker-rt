@@ -18,5 +18,5 @@ cd -
 # Set up full text indexing
 yes '' |
 /opt/rt4/sbin/rt-setup-fulltext-index \
-  --dba rt_user \
+  --dba "$DATABASE_USER" \
   --dba-password "$DATABASE_PASSWORD"

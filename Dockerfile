@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.10
+FROM phusion/baseimage:0.9.19
 MAINTAINER Open Knowledge System Administrators
 
 # Disable SSH
@@ -42,8 +42,8 @@ RUN ln -s /src/${RT} /src/rt
 RUN cd /src/${RT} && ./configure --with-db-type=Pg --enable-gpg --enable-gd --enable-graphviz
 # Install Capture::Tiny regardless of test failures for now
 RUN cpan -f Capture::Tiny
+RUN cpanm install GD GD::Graph GD::Text HTML::FormatText::WithLinks::AndTables --force
 RUN make -C /src/${RT} fixdeps
-RUN make -C /src/${RT} testdeps
 RUN make -C /src/${RT} install
 ADD ./scripts/rtcron /usr/bin/rtcron
 ADD ./scripts/rtinit /usr/bin/rtinit
