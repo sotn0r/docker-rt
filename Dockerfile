@@ -28,7 +28,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -q -y install \
 # Set up environment
 ENV PERL_MM_USE_DEFAULT 1
 ENV HOME /root
-ENV RT rt-4.2.4
+ENV RT rt-4.4.1
 ENV RTSRC ${RT}.tar.gz
 
 # Autoconfigure cpan
@@ -85,6 +85,7 @@ CMD ["/sbin/my_init"]
 VOLUME ["/data"]
 EXPOSE 25
 EXPOSE 80
+EXPOSE 443
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
