@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.19
+FROM phusion/baseimage:0.11
 MAINTAINER Open Knowledge System Administrators
 
 # Disable SSH
@@ -28,7 +28,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -q -y install \
 # Set up environment
 ENV PERL_MM_USE_DEFAULT 1
 ENV HOME /root
-ENV RT rt-4.4.1
+ENV RT rt-4.4.3
 ENV RTSRC ${RT}.tar.gz
 
 # Autoconfigure cpan
